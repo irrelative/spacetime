@@ -16,6 +16,9 @@ Including another URLconf
 from django.conf.urls import url
 from django.contrib import admin
 
+from stweb import views
+
 urlpatterns = [
+    url(r'^', views.EventListView.as_view(), name='event-list'),
     url(r'^admin/', admin.site.urls),
 ]
