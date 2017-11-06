@@ -4,10 +4,18 @@
 
 <h2>Events</h2>
 
-<ul>
+<dl>
 {% for event in object_list %}
-    <li>a</li>
+    <dt>
+        {{ event.title }}
+    </dt>
+    <dd>
+        {{ event.description }}<br/>
+        {{ event.eventtype.name }}<br/>
+        at: {{ event.timestamp.stamp }}<br/>
+        loc: {{ event.location.name }}<br/>
+    </dd>
 {% endfor %}
-</ul>
+</dl>
 
 {% endblock %}

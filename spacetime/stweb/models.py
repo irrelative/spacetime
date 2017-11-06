@@ -21,3 +21,6 @@ class Event(models.Model):
     timestamp = models.ForeignKey(TimeStamp)
     location = models.ForeignKey(Location)
     eventtype = models.ForeignKey(EventType)
+    title = models.TextField()
+    description = models.TextField()
+

@@ -19,6 +19,6 @@ from django.contrib import admin
 from stweb import views
 
 urlpatterns = [
-    url(r'^', views.EventListView.as_view(), name='event-list'),
     url(r'^admin/', admin.site.urls),
+    url(r'^', views.EventListView.as_view(), name='event-list'),
 ]
