@@ -5,10 +5,29 @@
 <div class="container">
   <div class="row">
     <div class="col">
-        {{ object.title }}
-    </div>
-    <div class="col">
+        <h1>{{ object.title }}</h1>
         <a href="{% url 'event-update' event.id %}">Update</a>
+
+        <table>
+            <tbody>
+                <tr>
+                    <th>Description</th>
+                    <td>{{ event.description }}</td>
+                </tr>
+                <tr>
+                    <th>Event Type</th>
+                    <td>{{ event.eventtype.name }}</td>
+                </tr>
+                <tr>
+                    <th>When</th>
+                    <td>{{ event.timestamp.stamp }}</td>
+                </tr>
+                <tr>
+                    <th>Where</th>
+                    <td>{{ event.location.name }}</td>
+                </tr>
+            </tbody>
+        </table>
     </div>
   </div>
 </div>
