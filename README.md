@@ -9,31 +9,10 @@ Some sort of queries that could be fun:
 
 Now in django
 
-## Tables
+## Timestamp assumptions
+* Min/Max follows python/db constraits. Eg: minimum year is 1CE from https://docs.python.org/3/library/datetime.html .
+  Will consider other values as things progress. eg: postgres minimum ts is 4713 BC.
 
-*Event*
+## Location assumptions
+* Only on earth
 
-* id
-* timestamp_id
-* location_id
-* event_type_id
-
-
-*Timestamp*
-
-* id
-* timestamp (indexed?)
-* duration (interval)
-
-
-*Location*
-
-* id
-* shape (?)
-* granularity (
-
-
-*EventType*
-
-* id
-* name (birth, death, battle, etc)

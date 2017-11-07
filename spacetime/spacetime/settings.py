@@ -37,6 +37,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django.contrib.gis',
     'stweb'
 ]
 
@@ -76,8 +77,9 @@ WSGI_APPLICATION = 'spacetime.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'ENGINE': 'django.contrib.gis.db.backends.postgis',
+        'NAME': 'spacetime',
+        'CONN_MAX_AGE': None # Keep connections forever
     }
 }
 
@@ -119,3 +121,8 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/1.11/howto/static-files/
 
 STATIC_URL = '/static/'
+
+
+
+# GIS
+SPATIALITE_LIBRARY_PATH='/usr/local/lib/mod_spatialite.dylib'
