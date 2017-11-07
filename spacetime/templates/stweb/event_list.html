@@ -2,20 +2,30 @@
 
 {% block 'contents' %}
 
-<h2>Events</h2>
+<div class="container">
+  <div class="row">
+    <div class="col">
 
-<dl>
-{% for event in object_list %}
-    <dt>
-        {{ event.title }}
-    </dt>
-    <dd>
-        {{ event.description }}<br/>
-        {{ event.eventtype.name }}<br/>
-        at: {{ event.timestamp.stamp }}<br/>
-        loc: {{ event.location.name }}<br/>
-    </dd>
-{% endfor %}
-</dl>
+        <h2>Events</h2>
+
+        <dl>
+        {% for event in object_list %}
+            <dt>
+                {{ event.title }}
+            </dt>
+            <dd>
+                {{ event.description }}<br/>
+                {{ event.eventtype.name }}<br/>
+                at: {{ event.timestamp.stamp }}<br/>
+                loc: {{ event.location.name }}<br/>
+            </dd>
+        {% endfor %}
+        </dl>
+
+    </div>
+  </div>
+</div>
+
+
 
 {% endblock %}
