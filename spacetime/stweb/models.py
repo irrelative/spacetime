@@ -32,7 +32,7 @@ class Event(models.Model):
     timestamp = models.ForeignKey(TimeStamp)
     location = models.ForeignKey(Location)
     eventtype = models.ForeignKey(EventType)
-    title = models.TextField()
+    title = models.CharField(max_length=200)
     description = models.TextField()
 
     def __unicode__(self):
