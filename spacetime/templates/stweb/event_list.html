@@ -11,7 +11,7 @@
         <dl>
         {% for event in object_list %}
             <dt>
-                {{ event.title }}
+                <a href="{% url 'event-update' event.id %}">{{ event.title }}</a>
             </dt>
             <dd>
                 {{ event.description }}<br/>

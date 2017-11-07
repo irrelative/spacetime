@@ -2,7 +2,7 @@
 from __future__ import unicode_literals
 
 from django.views.generic.list import ListView
-from django.views.generic.edit import CreateView
+from django.views.generic.edit import CreateView, UpdateView
 from django.urls import reverse
 
 from .models import Event
@@ -16,6 +16,13 @@ class EventListView(ListView):
 
 
 class EventCreate(CreateView):
+    model = Event
+    fields = ['timestamp', 'location', 'eventtype', 'title', 'description']
+    def get_success_url(self):
+        return reverse('event-list')
+
+
+class EventUpdate(UpdateView):
     model = Event
     fields = ['timestamp', 'location', 'eventtype', 'title', 'description']
     def get_success_url(self):

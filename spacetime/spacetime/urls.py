@@ -21,5 +21,6 @@ from stweb import views
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^event/new', views.EventCreate.as_view(), name='event-create'),
+    url(r'^event/(?P<pk>\d+)', views.EventUpdate.as_view(), name='event-update'),
     url(r'^', views.EventListView.as_view(), name='event-list'),
 ]
