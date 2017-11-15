@@ -1,9 +1,13 @@
 # -*- coding: utf-8 -*-
 from __future__ import unicode_literals
 
+from django.views.generic import TemplateView
 from django.views.generic.list import ListView
 from django.views.generic.detail import DetailView
 from django.views.generic.edit import CreateView, UpdateView
+
+from django import forms
+
 from django.urls import reverse
 
 from .models import Event
@@ -32,3 +36,4 @@ class EventUpdate(UpdateView):
 
 class EventDetail(DetailView):
     model = Event
+
