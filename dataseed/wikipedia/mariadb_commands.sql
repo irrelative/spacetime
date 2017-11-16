@@ -28,5 +28,5 @@ LINES TERMINATED BY '\n';
 // load back into postgres
 create temporary table geot (title text, lat decimal(11,8), lon decimal(11,8));
 copy geot (title, lat, lon) from '/tmp/cities.csv' with (format csv);
-// note magic 4326
-insert into stweb_location (name, point) select title, ST_SetSRID(ST_MakePoint(lat, lon), 4326) from geot;
+// note the SRID of 4326
+insert into stweb_location (name, point) select title, ST_SetSRID(ST_MakePoint(lon, lat), 4326) from geot;
