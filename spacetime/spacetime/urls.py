@@ -23,5 +23,8 @@ urlpatterns = [
     url(r'^event/new', views.EventCreate.as_view(), name='event-create'),
     url(r'^event/(?P<pk>\d+)/edit', views.EventUpdate.as_view(), name='event-update'),
     url(r'^event/(?P<pk>\d+)', views.EventDetail.as_view(), name='event-detail'),
+    url(r'^location-autocomplete', views.LocationAutocomplete.as_view(), name='location-autocomplete'),
+    url(r'^timestamp-autocomplete', views.TimeStampAutocomplete.as_view(), name='timestamp-autocomplete'),
+    url(r'^eventtype-autocomplete', views.EventTypeAutocomplete.as_view(), name='eventtype-autocomplete'),
     url(r'^', views.EventListView.as_view(), name='event-list'),
 ]

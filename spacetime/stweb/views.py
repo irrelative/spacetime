@@ -10,7 +10,10 @@ from django import forms
 
 from django.urls import reverse
 
-from .models import Event
+from dal import autocomplete
+
+from .models import Event, Location, TimeStamp, EventType
+from .forms import EventForm
 
 class EventListView(ListView):
     model = Event
@@ -22,14 +25,14 @@ class EventListView(ListView):
 
 class EventCreate(CreateView):
     model = Event
-    fields = ['timestamp', 'location', 'eventtype', 'title', 'description']
+    form_class = EventForm
     def get_success_url(self):
         return reverse('event-list')
 
 
 class EventUpdate(UpdateView):
     model = Event
-    fields = ['timestamp', 'location', 'eventtype', 'title', 'description']
+    form_class = EventForm
     def get_success_url(self):
         return reverse('event-list')
 
@@ -37,3 +40,12 @@ class EventUpdate(UpdateView):
 class EventDetail(DetailView):
     model = Event
 
+
+class LocationAutocomplete(autocomplete.Select2QuerySetView):
+    model = Location
+
+class TimeStampAutocomplete(autocomplete.Select2QuerySetView):
+    model = TimeStamp
+
+class EventTypeAutocomplete(autocomplete.Select2QuerySetView):
+    model = EventType
